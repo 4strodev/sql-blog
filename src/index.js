@@ -7,6 +7,10 @@ app.use(express.json());
 app.use(morgan());
 
 app.get("/", (_, res) => {
+  const pool = getPool();
+
+  pool.query();
+
   return res.json({ msg: "Hello world" });
 });
 
