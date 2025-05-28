@@ -6,14 +6,14 @@ const app = express();
 app.use(express.json());
 app.use(morgan());
 
-app.get("/", (_, res) => {
-  const pool = getPool();
+app.get("/", async (_, res) => {
+    const pool = getPool();
 
-  pool.query();
+    const result = await pool.query("select * from user");
 
-  return res.json({ msg: "Hello world" });
+    return res.json(result[0]);
 });
 
 app.listen(3000, () => {
-  console.log("listening on port 3000");
+    console.log("listening on port 3000");
 });
