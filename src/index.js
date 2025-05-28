@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require("morgan");
-
+const {}=require('./db/getpool')
 const app = express();
 
 app.use(express.json());
